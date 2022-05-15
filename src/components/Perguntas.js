@@ -1,20 +1,27 @@
-import Pergunta from "./Pergunta"
+import React from "react";
+import Card from "./Card";
 
-// renderiza as perguntas numeradas
+
 
 export default function Perguntas () {
 
-let perguntas = [];
-let num = 6 // Poderia ser um valor que o usuário adiciona num prompt
+    const [classeP, setClassNameP] = React.useState("pergunta");
+    const numeradas = [1, 2, 3, 4, 5, 6];
 
-    for(let i = 0; i < num; i++){
-        perguntas.push(i);
-    } 
+    const [classeC, setClassNameC] = React.useState("display-none");
+
+    function perguntaClicada () {
+        setClassNameP("pergunta card");
+        setClassNameC("");
+    }
 
     return (
-        <div>
-        {perguntas.map(pergunta => <Pergunta pergunta={pergunta} />)}
-        </div>
+    <div>
+     {numeradas.map(i => <div className={ classeP } onClick={ perguntaClicada }>
+        <ul>Pergunta { i } <ion-icon name="play-outline"></ion-icon></ul>
+        <Card classeC={ classeC }/> 
+        </div>)}
+    </div>
     );
 
 }

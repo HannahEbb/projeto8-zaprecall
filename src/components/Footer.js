@@ -1,3 +1,6 @@
+import Perguntas from "./Perguntas";
+import Card from "./Card";
+
 
 
 
